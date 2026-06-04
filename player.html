@@ -6,7 +6,7 @@
     <title>ویدیو پلیر آفلاین MAYAR</title>
     <style>
         body {
-            font-family: Tahoma, sans-serif;
+            font-family: sans-serif;
             background: #11141a;
             color: #ffffff;
             display: flex;
@@ -49,7 +49,7 @@
             border-radius: 15px;
             background: #000000;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: none; /* ابتدا مخفی است تا ویدیو انتخاب شود */
+            display: none; /* ابتدا مخفی است */
         }
 
         /* دکمه انتخاب فایل */
@@ -100,7 +100,7 @@
         </label>
 
         <!-- نمایش‌دهنده ویدیو پلیر -->
-        <video id="videoPlayer" controls></video>
+        <video id="videoPlayer" controls playsinline></video>
 
         <div class="footer">
             Abdulwahab Mayar
@@ -116,11 +116,9 @@
         videoInput.addEventListener('change', function() {
             const file = this.files[0];
             if (file) {
-                // تبدیل فایل محلی گوشی به آدرس قابل پخش در برنامه
                 const fileURL = URL.createObjectURL(file);
                 videoPlayer.src = fileURL;
                 
-                // پنهان کردن باکس آپلود و نشان دادن پلیر
                 uploadBox.style.display = 'none';
                 videoPlayer.style.display = 'block';
                 
